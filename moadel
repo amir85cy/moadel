@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'Mahoor-FD ExtraBold';
+        src: url('Mahoor-FD-ExtraBold.eot'); /* IE9 Compat Modes */
+        src: url('Mahoor-FD-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('Mahoor-FD-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+            url('Mahoor-FD-ExtraBold.woff') format('woff'), /* Pretty Modern Browsers */
+            url('Mahoor-FD-ExtraBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+            url('Mahoor-FD-ExtraBold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+    body{
+        direction: inherit;
+        font-family: Mahoor-FD ExtraBold;
+        background:black;
+    }
+    input{
+        height: 5mm;
+        width: auto;
+        margin: auto;
+    }
+    #kol{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse; 
+    }
+    #tak{
+        display: flex;
+        height: fit-content;
+        width: 30%;
+        background: aquamarine;
+        border: 1px solid white;
+        border-radius: 8px;
+        margin-inline: auto;
+        margin-block: 5px;
+        min-width: fit-content;
+    }
+    p{
+        margin: auto;
+    }
+    h1{
+        color: deeppink;
+        text-align: center;
+    }
+    #result{
+        background: whitesmoke;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+    button{
+        margin: auto;
+        display: block;
+        font-family: Mahoor-FD ExtraBold;
+        background: darkorchid;
+        border: 0;
+        padding: 10px;
+        border-radius: 30px;
+        width: 100px;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1> محاسبه معدل نهایی</h1>
+    <div id="kol">
+        <div id="tak"><input name="farsi"   type="number" required min="0" max="20"><br><p>فارسی</p></div>
+        <div id="tak"><input name="arabi"   type="number" required min="0" max="20"><br><p>عربی </p></div>
+        <div id="tak"><input name="zaban"   type="number" required min="0" max="20"><br><p>زبان خارجه</p></div>
+        <div id="tak"><input name="salamat" type="number" required min="0" max="20"><br><p>سلامت</p></div>
+        <div id="tak"><input name="hoviat"  type="number" required min="0" max="20"><br><p>هویت</p></div>
+        <div id="tak"><input name="hesaban" type="number" required min="0" max="20"><br><p>حسابان</p></div>
+        <div id="tak"><input name="fizik"   type="number" required min="0" max="20"><br><p>فیزیک</p></div>
+        <div id="tak"><input name="shimi"   type="number" required min="0" max="20"><br><p>شیمی</p></div>
+        <div id="tak"><input name="gosaste" type="number" required min="0" max="20"><br><p>گسسته</p></div>
+        <div id="tak"><input name="hendese" type="number" required min="0" max="20"><br><p>هندسه</p></div>
+        <div id="tak"><input name="dini"    type="number" required min="0" max="20"><br><p>دینی</p></div>
+    </div>
+    <div id="result"> :معدل نهایی شما </div>
+    <button onclick="get_info();">محاسبه کن </button>
+<script>
+    function get_info(){
+        let farsi = document.getElementsByName("farsi")[0].value * 	18.64;
+        let arabi = document.getElementsByName("arabi")[0].value * 7.80;
+        let zaban = document.getElementsByName("zaban")[0].value * 10.17;
+        let salamat = document.getElementsByName("salamat")[0].value * 2.96;
+        let hoviat = document.getElementsByName("hoviat")[0].value * 2.20;
+        let hesaban = document.getElementsByName("hesaban")[0].value * 9.86;
+        let fizik = document.getElementsByName("fizik")[0].value * 13.98 ;
+        let shimi = document.getElementsByName("shimi")[0].value * 9.41;
+        let gosaste = document.getElementsByName("gosaste")[0].value * 4.93;
+        let hendese = document.getElementsByName("hendese")[0].value * 5.82;
+        let dini = document.getElementsByName("dini")[0].value * 14.23;
+        let moadel = ((farsi+arabi+zaban+salamat+hoviat+hesaban+fizik+shimi+gosaste+hendese+dini)/100);
+        let result = document.getElementById("result");
+        result.innerHTML = "معدل نهایی شما     :    " + moadel;
+    } 
+</script>
+</body>
+</html>
